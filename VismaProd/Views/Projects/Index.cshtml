@@ -1,0 +1,33 @@
+﻿@model IEnumerable<VismaProd.Project>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Projects - Total Worked time per project</h2>
+
+<p>
+    @Html.ActionLink("Log Time","Create","TimeInfoes")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalHours)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalHours)
+        </td>
+    </tr>
+}
+
+</table>

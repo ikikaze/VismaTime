@@ -1,0 +1,49 @@
+﻿@model IEnumerable<VismaProd.TimeInfo>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Logged Time for user @ViewBag.UserName</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create","TimeInfoes")
+</p>
+<table class="table">
+    <tr>       
+        <th>
+            @Html.DisplayNameFor(model => model.Project.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.startTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hours)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Project.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.startTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.endTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hours)
+            </td>
+            <td>               
+                @Html.ActionLink("Delete", "Delete","TimeInfoes", new { id = item.Id }, null)
+            </td>
+        </tr>
+    }
+
+</table>
